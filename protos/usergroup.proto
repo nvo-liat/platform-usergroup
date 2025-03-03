@@ -1,0 +1,23 @@
+syntax = "proto3";
+package liat.platform.usergroup;
+
+option go_package = "github.com/nvo-liat/platform-usergroup/protos";
+
+message Usergroup {
+  string id = 1;
+  string client_id = 2;
+  string name = 3;
+  repeated string privileges = 4;
+}
+
+message UsergroupResponse {
+   Usergroup usergroup = 1;
+}
+
+message ShowRequest {
+   string id = 1;
+}
+
+service UsergroupService {
+  rpc Show (ShowRequest) returns (UsergroupResponse) {}
+}
